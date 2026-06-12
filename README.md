@@ -1,5 +1,10 @@
-You can reply to the Skeptical Teammate:
-That's a valid concern. My initial worry would be that developers might accept AI-generated code without sufficient review, which could introduce bugs, security issues, or code that doesn't align with our architecture and standards.
-However, I see Claude Code as a productivity tool rather than a replacement for engineering judgment. We would still use code reviews, automated testing, linting, and CI/CD checks to maintain quality standards.
-In fact, Claude Code can often improve code quality by helping generate unit tests, identifying edge cases, suggesting refactoring opportunities, maintaining consistency across files, and reducing repetitive coding mistakes. It can also help developers better understand unfamiliar parts of the codebase.
-My recommendation would be to adopt Claude Code with clear guardrails: all generated code must go through the same review process as manually written code, and developers remain accountable for understanding and validating the changes. Used this way, I believe it can increase productivity while maintaining or even improving overall code quality.
+You can reply:
+When integrating with many external services, several challenges can arise:
+Different APIs and protocols: Each service may have its own API structure, authentication method, request format, and documentation.
+Authentication and security: Managing API keys, OAuth tokens, permissions, and secure credential storage can become complex.
+Rate limits and quotas: External services often impose limits on API usage, requiring careful handling of retries and throttling.
+Error handling and reliability: Services may experience outages, latency issues, or return inconsistent responses, which the application must handle gracefully.
+Data format differences: Each service may use different schemas and data models, requiring transformation and mapping logic.
+Versioning and maintenance: APIs evolve over time, and integrations must be updated when providers change endpoints or deprecate features.
+Monitoring and debugging: Troubleshooting issues across multiple third-party systems can be difficult because failures may occur outside the application's control.
+These challenges increase development and maintenance effort, especially as the number of integrations grows. A standardized approach such as MCP can help simplify how applications connect to and interact with external services.
