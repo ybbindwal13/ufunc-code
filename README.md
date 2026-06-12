@@ -1,14 +1,3 @@
-For this authentication-related change, I would include only the files that provide the necessary implementation context while avoiding unnecessary exposure of sensitive information.
-Files to include using @ mentions:
-Authentication service files that handle login, logout, token generation, and validation.
-Relevant API endpoint or controller files that interact with authentication.
-User model or schema definitions needed to understand authentication flows.
-Configuration files that define authentication settings (with secrets, API keys, and credentials redacted).
-Existing unit or integration tests related to authentication.
-Project documentation explaining the authentication architecture.
-Files to exclude:
-Production databases or data exports containing user information.
-Files containing API keys, passwords, tokens, certificates, or secrets.
-Unrelated modules that do not affect authentication.
-Logs containing user activity or personally identifiable information (PII).
-This approach gives Claude Code enough context to understand the authentication workflow and make accurate code changes while maintaining security, privacy, and the principle of least privilege.
+To create a custom command in Claude Code, create a Markdown file inside the .claude/commands/ directory of your project. The filename determines the command name. For example, creating a file named review-pr.md makes the command available as /review-pr in Claude Code.
+The command file contains instructions, prompts, or workflows that Claude Code should execute whenever the command is invoked. This allows developers to standardize common tasks and ensure consistent behavior across a project or team.
+One major benefit of custom commands is improved productivity. Instead of repeatedly typing the same detailed prompts, developers can run a predefined command that automatically provides the required context and instructions. This saves time, reduces errors, and ensures that recurring tasks such as code reviews, test generation, documentation updates, or bug investigations are performed consistently and efficiently.
