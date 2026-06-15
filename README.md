@@ -1,12 +1,13 @@
-You can reply:
-In the MCP architecture, the client is the application or AI assistant that needs access to tools and resources, while the server exposes those tools, resources, and capabilities through the MCP protocol.
-The MCP client is responsible for initiating communication, discovering available tools, requesting resources, and invoking tool actions when needed. It acts as the consumer of capabilities.
-The MCP server is responsible for providing those capabilities. It defines available tools, exposes resources, executes requested operations, and returns results to the client in a standardized format.
-To support this interaction, the client and server exchange several types of messages, including:
-Initialization messages to establish the connection and negotiate capabilities.
-Tool discovery messages that allow the client to learn what tools are available.
-Tool invocation requests sent by the client when it wants a tool to perform an action.
-Resource requests to access data or contextual information.
-Response messages that return execution results, resource data, or error information.
-Notifications/events that communicate updates without requiring a direct response.
-This structured communication model enables clients and servers to work together consistently, allowing AI applications to access a wide variety of tools and services through a common protocol rather than custom integrations for each service.
+When building an MCP (Model Context Protocol) server with the Python SDK, tools are typically defined using decorators provided by the SDK. A decorator such as @server.tool() registers a Python function as a tool that can be called by an AI client. Type hints are used on function parameters and return values to describe the expected inputs and outputs. These type hints help the MCP framework automatically generate schemas, validate data, and provide better documentation for the tool.
+Example:
+Python
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP("DemoServer")
+
+@mcp.tool()
+def add_numbers(a: int, b: int) -> int:
+    """Adds two numbers together."""
+    return a + b
+In this example, the decorator exposes the function as an MCP tool, while the type hints (int) define the expected parameter types and return type.
+Before connecting tools to a real application, I would test them using the MCP Inspector. First, I would start the MCP server locally and launch the Inspector. Then I would connect the Inspector to the running server and verify that all tools are discovered correctly. Next, I would execute each tool with different inputs, including valid, invalid, and edge-case values, to confirm proper behavior and error handling. I would also check the returned data structure and ensure the tool descriptions and parameter schemas are displayed correctly. After successful testing and validation in the MCP Inspector, the tools can be safely integrated into a real application or AI workflow.
