@@ -1,16 +1,16 @@
-What MCP is
-MCP (Model Context Protocol) is a standard way for AI applications to communicate with external tools, data sources, and services.
-It provides a common interface between AI clients and servers.
-What problem it solves
-Without MCP, every application must build and maintain custom integrations for each service.
-Different APIs have different authentication methods, request formats, and data structures.
-MCP reduces duplicated integration work.
-GitHub example
-Explain how an AI assistant might need to read repositories, issues, or pull requests from GitHub.
-Without MCP, developers would need to write custom GitHub API code.
-With MCP, a GitHub MCP server exposes those capabilities through a standardized protocol that any MCP-compatible client can use.
-How it reduces work
-Reusable integrations.
-Standardized tool discovery and communication.
-Less custom code and maintenance.
-Easier to connect multiple applications to the same service.
+1. What an MCP client does
+An MCP client connects an application to an MCP server.
+It discovers available tools and resources.
+It sends requests to the server and receives responses.
+It acts as the communication layer between the application and external capabilities.
+2. How it helps applications
+Applications don't need to implement every integration directly.
+The client uses the standardized MCP protocol to interact with different servers.
+This makes it easier to add new tools and data sources.
+3. Specific communication example
+Choose one:
+Tool discovery: The client asks the server for a list of available tools and receives their names, descriptions, and input schemas.
+Tool invocation: The client sends a request to call a tool (for example, a calculator tool with two numbers) and receives the result.
+Resource access: The client requests a resource and receives the corresponding data.
+4. Conclusion
+Explain that the MCP client enables secure, standardized communication between applications and MCP servers, making tool and resource access easier and more reusable.
